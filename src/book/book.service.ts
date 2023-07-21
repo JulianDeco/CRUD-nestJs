@@ -47,4 +47,8 @@ export class BookService {
             throw new HttpException('Id incorrecto o body incorrecto.', HttpStatus.BAD_REQUEST)
         }
       }
+
+      async deleteById(id: string): Promise<Book> {
+        return await this.bookModel.findByIdAndDelete(id)
+      }
 }
